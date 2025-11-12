@@ -1,0 +1,15 @@
+{
+  "showCLICommands": false,
+  "addExtensionsToInternalLinks": "html",
+  "injectAppCSS": "light",
+  "injectThemeCSS": false,
+  "customCSSFile": null,
+  "displayYAMLFrontmatter": false,
+  "linkStrippingBehaviour": "text",
+  "highDPIDiagrams": true,
+  "pandoc": "C:\\Users\\16374\\AppData\\Local\\Pandoc\\pandoc.exe",
+  "pdflatex": null,
+  "outputFolder": null,
+  "extraArguments": "--pdf-engine=xelatex \n-V CJKmainfont=\"SimSun\"",
+  "exportFrom": "html"
+}

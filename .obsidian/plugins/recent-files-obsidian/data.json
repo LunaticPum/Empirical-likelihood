@@ -1,0 +1,60 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Transformer",
+      "path": "Bishop 阅读笔记/Transformer.md"
+    },
+    {
+      "basename": "DP 笔记索引",
+      "path": "DP 笔记索引.md"
+    },
+    {
+      "basename": "Callout block",
+      "path": "其他/Callout block.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "正则化",
+      "path": "Bishop 阅读笔记/正则化.md"
+    },
+    {
+      "basename": "Figure_26_a",
+      "path": "Bishop 阅读笔记/pics/ch10/Figure_26_a.png"
+    },
+    {
+      "basename": "反向传播",
+      "path": "Bishop 阅读笔记/反向传播.md"
+    },
+    {
+      "basename": "卷积网络",
+      "path": "Bishop 阅读笔记/卷积网络.md"
+    },
+    {
+      "basename": "梯度下降",
+      "path": "Bishop 阅读笔记/梯度下降.md"
+    },
+    {
+      "basename": "LeNet",
+      "path": "Pytorch 实战/LeNet.md"
+    },
+    {
+      "basename": "AlexNet",
+      "path": "Pytorch 实战/AlexNet.md"
+    },
+    {
+      "basename": "VGG",
+      "path": "Pytorch 实战/VGG.md"
+    },
+    {
+      "basename": "fig_1",
+      "path": "Pytorch 实战/pics/AlexNet/fig_1.png"
+    }
+  ],
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
+}

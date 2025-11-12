@@ -1,0 +1,10 @@
+{
+	"id": "heatmap",
+	"name": "Heatmap",
+	"version": "1.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "A simple heatmap for the sidebar",
+	"author": "j-finger",
+	"authorUrl": "https://github.com/j-finger",
+	"isDesktopOnly": false
+}
