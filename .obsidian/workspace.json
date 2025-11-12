@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "经验似然"
             }
+          },
+          {
+            "id": "49c60beb658a8b2f",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.3"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.10.3"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -233,7 +245,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "924543c86ab788c4",
+  "active": "49c60beb658a8b2f",
   "lastOpenFiles": [
     "其他/Callout block.md",
     "其他",
