@@ -1,4 +1,11 @@
 {
-  "cssTheme": "Obsidian gruvbox",
-  "theme": "obsidian"
+  "cssTheme": "Dracula Official",
+  "theme": "obsidian",
+  "baseFontSizeAction": true,
+  "baseFontSize": 15,
+  "enabledCssSnippets": [
+    "align-image1",
+    "for_image_captions_plug",
+    "Advanced_callout"
+  ]
 }
