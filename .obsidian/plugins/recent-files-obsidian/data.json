@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "经验似然",
+      "path": "经验似然.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "Transformer",
       "path": "Bishop 阅读笔记/Transformer.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "Callout block",
       "path": "其他/Callout block.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "正则化",
