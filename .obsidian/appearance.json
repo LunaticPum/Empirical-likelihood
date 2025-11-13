@@ -2,7 +2,7 @@
   "cssTheme": "Dracula Official",
   "theme": "obsidian",
   "baseFontSizeAction": true,
-  "baseFontSize": 16,
+  "baseFontSize": 18,
   "enabledCssSnippets": [
     "align-image1",
     "for_image_captions_plug",
