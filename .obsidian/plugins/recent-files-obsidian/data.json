@@ -9,16 +9,20 @@
       "path": "README.md"
     },
     {
+      "basename": "Callout block",
+      "path": "其他/Callout block.md"
+    },
+    {
+      "basename": "Definition",
+      "path": "其他/Definition.md"
+    },
+    {
       "basename": "Transformer",
       "path": "Bishop 阅读笔记/Transformer.md"
     },
     {
       "basename": "DP 笔记索引",
       "path": "DP 笔记索引.md"
-    },
-    {
-      "basename": "Callout block",
-      "path": "其他/Callout block.md"
     },
     {
       "basename": "正则化",
