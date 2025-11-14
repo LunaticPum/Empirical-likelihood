@@ -49,21 +49,26 @@ $$\begin{align}
 \end{align}$$
 其中，第一行表达式是基于假设累积风险函数 $\Lambda(T)$ 为纯离散函数（阶梯函数）的情况下得到的。
 
-由于数据中存在删失，意味着我们*对病人的生存时间进行的是不完全观测*，因此生存时间的观测是离散的，而其相应的累积风险函数也必然具有**跳跃性**。因此，我们只能选择离散形式的风险函数作为经验似然的标准，并以离散的风险函数作为我们的经验似然估计目标。
-
 >[!tip|pz]+ **最大观测值删失对风险函数估计的影响**
 > 当最大观测值被删失时，风险函数的经验似然估计（NPMLE）和Kaplan-Meier估计都会面临类似的问题：*对于删失后的时间段，无法给出唯一的估计值*。这是因为删失数据提供了关于该时间点之后的信息的不完全性，导致无法确定删失时间点之后的生存风险或生存概率。
+
+由于数据中存在删失，意味着我们*对病人的生存时间进行的是不完全观测*，因此生存时间的观测是离散的，而其相应的累积风险函数也必然具有**跳跃性**。因此，我们只能选择离散形式的风险函数作为经验似然的标准，并以离散的风险函数作为我们的经验似然估计目标。
 
 令 $w_i=\Delta\Lambda(T_i)\,,\, i=1,2,\ldots,n$ , 其中 $w_n = \delta_n$ ，因为累积风险函数的最后一跳必须为 1，以确保所有时刻的累积风险跳跃总和为 1。于是，经验似然函数可表示为：
 $$EL(\Lambda)=\prod_{i=1}^n\left\{w_i\right\}^{\delta_i}\exp\left\{-\sum_{j=1}^nw_j\mathbb{1}[T_j\leq T_i]\right\}$$
 接下来，设置经验似然估计的约束条件，即 $\Lambda(T)$ 需要满足以下积分约束：
-$$\int_0^\infty g_1(t)d\Lambda(t)=\theta_1$$
-$$\int_0^\infty g_2(t)d\Lambda(t)=\theta_2$$
+$$\int_0^\infty g_1(t)\mathrm{d}\Lambda(t)=\theta_1$$
+$$\int_0^\infty g_2(t)\mathrm{d}\Lambda(t)=\theta_2$$
 $$\cdots\cdots$$
-$$\int_0^\infty g_p(t)d\Lambda(t)=\theta_p$$
+$$\int_0^\infty g_p(t)\mathrm{d}\Lambda(t)=\theta_p$$
 其中，$g_i(t)\,,\,i=1,2\ldots,p$ 是满足一定矩条件的函数，$\theta_i$ 是给定的约束条件。在离散估计下，这些约束可表示为：
 $$\sum_{i=1}^n g_1(T_i)w_i=\theta_1$$
 $$\sum_{i=1}^n g_2(T_i)w_i=\theta_2$$
 $$\cdots\cdots$$
 $$\sum_{i=1}^n g_p(T_i)w_i=\theta_p$$
-如果在没有约束条件的情况下进行估计，最大化经验似然得到的风险函数的 NPMLE 为 $w_i = \Delta \hat{\Lambda}_{NA}(T_i) = \frac{\delta_i}{R_i}$，其中 $R_i = \sum_k \mathbb{1}[T_k \geq T_i]$。该结果也被称为 Nelson-Aalen 估计器。而在有约束条件下，我们可以通过 Nelson-Aalen 估计其
+如果在没有约束条件的情况下进行估计，最大化经验似然得到的风险函数为$$w_i = \Delta \hat{\Lambda}_{NA}(T_i) = \frac{\delta_i}{R_i}$$其中 $R_i = \sum_k \mathbb{1}[T_k \geq T_i]$ ，该结果被称为 Nelson-Aalen 估计器。
+
+而在有约束条件下进行估计时，我们可以通过 Nelson-Aalen 估计器得到参数 $\theta$ 的 NPMLE 估计，即： 
+$$\hat{\theta}_{NPMLE}=\int g(t)\mathrm{d}\hat{\Lambda}_{NA}(t)$$
+### 1.3 最大化风险经验似然
+前面我们提到，离散风险函数的最后一个跳跃必须为 1，于是在最大经验似然估计下应有 $w_n=\delta_n=\Delta\hat{\Lambda}_{NA}(T_n)$ ，而对于其他跳跃的估计，我们以离散估计下的约束条件为基础，可以通过以下定理来得到其他跳跃的估计。
