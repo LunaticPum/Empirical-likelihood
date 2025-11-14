@@ -100,9 +100,33 @@ data("heart")
 
 time <- stanford2$time
 status <- stanford2$status
-myfun <- function(t){as.numeric(t <= 3 * 365.25)}
-result = emplikH1.test(x=time, d=status, theta=-log(0.4), fun=myfun)
+myfun <- function(t) {
+  as.numeric(t <= 3 * 365.25)
+}
+result = emplikH1.test(
+  x = time,
+  d = status,
+  theta = -log(0.4),
+  fun = myfun
+)
 # 计算卡方检验的p值。
-1 - pchisq(result$`-2LLR`, df=1)
-```
+1 - pchisq(result$`-2LLR`, df = 1)
 
+myULfun <- function(theta, x, d) {
+  emplikH1.test(
+    x = x,
+    d = d,
+    theta = theta,
+    fun = function(t) {
+      as.numeric(t <= 1095.75)
+    }
+  )
+}
+findUL(
+  fun = myULfun,
+  MLE = -log(0.43),
+  x = time,
+  d = status
+)
+```
+根据经验似然估计的结果，可以计算得到 -2 对数经验似然比的取值为`0.8027874` ，相应的卡方检验的 p 值为 `0.3702613` ，说明 3 年的生存概率为 60% 是一个合理的假设。还可以使用 `emplik` 包下的 `findUL` 函数计算生存数据的 $\theta$ 的 95% 置信区间
