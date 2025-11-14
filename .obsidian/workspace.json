@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "EL 实现.md",
+                "file": "EL for Linear Functionals of Hazard.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EL 实现"
+              "title": "EL for Linear Functionals of Hazard"
             }
           }
         ],
@@ -250,7 +250,7 @@
   "active": "7766d64b795d2873",
   "lastOpenFiles": [
     "经验似然.md",
-    "EL 实现.md",
+    "EL for Linear Functionals of Hazard.md",
     "README.md",
     "其他/Callout block.md",
     "其他/Definition.md",
