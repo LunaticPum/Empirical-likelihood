@@ -36,4 +36,14 @@ $$\begin{align}
 \end{align}$$
 其中，$\Delta\Lambda(t_i)=\Lambda(t_i+)-\Lambda(t_i-)$ 表示累积风险函数 $\Lambda(t_i)$ 在时间点 $t_i$ 的”**跳跃**“。
 
-在实际使用中，通过 Kaplan-Meier 估计等方法得到的 $F$ 的估计是离散的，相应地，累积风险函数 $\Lambda(t)$ 也应当是离散的函数形式，为此，不能简单利用连续的 $\Lambda(t)$ 来描述生存函数的变化，而应考虑到 $\Lambda(t)$ 的跳跃特性（即此时 $\Lambda(t)$ 是一个阶梯函数），而 $\Lambda(t)$ 在 $t$ 时刻的值等于在 $t$ 之前所有发生的跳跃的综合
+然而，在实际使用中，通过 Kaplan-Meier 估计等方法得到的生存相关的累积分布函数 $F(t)$ 的估计是离散的。因此，累积风险函数 $\Lambda(t)$ 也应当是离散的函数形式。基于此，我们不能简单利用连续形式的 $\Lambda(t)$ 来描述生存函数的变化，而必须考虑到 $\Lambda(t)$ 的**跳跃特性**，即 $\Lambda(t)$ 是一个阶梯函数。*在每个事件发生时，累积风险函数会发生跳跃*，且 $\Lambda(t)$ 在某一时刻 $t_i$ 的值等于在 $t_i$ 之前所有事件跳跃的总和，具体表示为：
+$$\Lambda(t_i)=\sum_j\Delta\Lambda(t_j)\mathbb{1}[t_j\leq t_i]$$
+其中 $\Delta\Lambda(t_j)$ 是在 $t_j$ 时刻的跳跃大小，且只有在事件发生（即未删失）时，累积风险函数才会发生跳跃，即 $\Delta\Lambda(t_j)\neq 0$ 。因此，与 $\Lambda(t)$ 相关的对数经验似然表示为：
+$$\log EL(\Lambda)=\sum_{i=1}^n\left(\delta_i\log\Delta\Lambda(t_i)-\sum_j\Delta\Lambda(t_j)\mathbb{1}[t_j\leq t_i]\right)$$
+
+### 1.2 经验似然估计
+根据上述过程，我们能得到删失数据的关于累积风险函数的经验似然有如下两个形式：
+$$\begin{align}
+	EL(\Lambda)&=\prod_{i=1}^n\left\{\Delta\Lambda(t_i)\right\}^{\delta_i}\exp\left\{\sum_j\Delta\Lambda(t_j)\mathbb{1}[t_j\leq t_i]\right\} \\
+	
+\end{align}$$
