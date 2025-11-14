@@ -86,3 +86,6 @@ $$\hat{\theta}_{NPMLE}=\int g(t)\mathrm{d}\hat{\Lambda}_{NA}(t)$$
 > $$\sum_{i=1}^{n-1}\frac{1}{n}\frac{Z_{ki}}{1+\lambda^\top\vec{Z}_i}+g_k(T_n)\delta_n=\theta_k\,,\quad k=1,2,\ldots,p$$
 > 
 > *Ps. 上述过程实际上是通过拉格朗日法求解在约束条件下使目标函数 $\log EL(\Lambda)$ 取最大值的解，$\lambda$ 为拉格朗日乘子。*
+
+>[!info|wbk wtb tm]+ 
+> *例子 1.1*&emsp;下面我们来检验一个关于生存概率的假设。在该例子中，目的是检验在 3 年时的累积风险是否等于一个给定值，即 $\theta=-\log(0.4)$ 。为了做到这一点，定义约束 $g(t)=\mathbb{1}[t\leq 1095.75]$ 表示生存时间小于或等于 3 年，并假设 $H_0 : \int g(t)\mathrm{d}\Lambda_0(t)=\theta=-\log(0.4)$ ，由 $S(t)=\exp(-\Lambda_0(t))$ ，先验该检验等价于检验 3 年的生存概率 $S(3) = \exp(\log(0.4)) = 0.6$ 是否成立，即 3 年时生存概率为 60% 。
