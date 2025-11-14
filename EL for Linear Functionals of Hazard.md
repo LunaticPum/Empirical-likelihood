@@ -24,12 +24,16 @@ $$\log EL(F)=\sum_{i=1}^n\delta_i\log\mathrm{d}F(t_i)+(1-\delta_i)\log\left[1-F(
 ### 1.1 风险函数的引入
 我们可以观察到，对于病人个体，其生存时间的累积风险函数 $\Lambda(t)$ 和累积分布函数 $F(t)$ 存在一一对应的关系，因此，能将与 $F$ 相关的经验似然表示为与 $\Lambda$ 相关的经验似然，为此，我们考虑以下两种经验似然的表示形式：
 #### 泊松似然
-对于累积风险函数和累积分布函数，有
+由于生存函数 $S(t) = 1 - F(t)$ 与累积风险函数 $\Lambda(t)$ 之间的关系式为
 $$1-F(t)=\exp(-\Lambda(t))$$
-相应地，与 $\Lambda$ 相关的对数经验似然表示为：
+因此，与 $\Lambda$ 相关的对数经验似然表示为：
 $$\begin{align}
 &\quad\,\,\delta_i\log\mathrm{d}F(t_i)+(1-\delta_i)\log\left[1-F(t_i)\right]\\
 &= \delta_i\log\mathrm{d}[1-\exp(-\Lambda(t_i))]+(1-\delta_i)(-\Lambda(t_i))\\
+&=  \delta_i\log[\exp(-\Lambda(t_i))\mathrm{d}\Lambda(t_i)]+(1-\delta_i)(-\Lambda(t_i))\\
+&= \delta_i[-\Lambda(t_i)+\Lambda(t_i)+\log\mathrm{d}\Lambda(t_i)]-\Lambda(t_i)\\
 &= \delta_i\log\Delta\Lambda(t_i)-\Lambda(t_i)
 \end{align}$$
-其中，$\Delta\Lambda(t_i)=\Lambda(t_i+)-\Lambda(t_i-)$ 。
+其中，$\Delta\Lambda(t_i)=\Lambda(t_i+)-\Lambda(t_i-)$ 表示累积风险函数 $\Lambda(t_i)$ 在时间点 $t_i$ 的”**跳跃**“。
+
+在实际使用中，通过 Kaplan-Meier 估计等方法得到的 $F$ 的估计是离散的，相应地，累积风险函数 $\Lambda(t)$ 也应当是离散的函数形式，为此，不能简单利用连续的 $\Lambda(t)$ 来描述生存函数的变化，而应考虑到 $\Lambda(t)$ 的跳跃特性（即此时 $\Lambda(t)$ 是一个阶梯函数），而 $\Lambda(t)$ 在 $t$ 时刻的值等于在 $t$ 之前所有发生的跳跃的综合
