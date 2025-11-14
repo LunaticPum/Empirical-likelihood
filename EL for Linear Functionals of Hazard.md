@@ -24,11 +24,12 @@ $$\log EL(F)=\sum_{i=1}^n\delta_i\log\mathrm{d}F(t_i)+(1-\delta_i)\log\left[1-F(
 ### 1.1 风险函数的引入
 我们可以观察到，对于病人个体，其生存时间的累积风险函数 $\Lambda(t)$ 和累积分布函数 $F(t)$ 存在一一对应的关系，因此，能将与 $F$ 相关的经验似然表示为与 $\Lambda$ 相关的经验似然，为此，我们考虑以下两种经验似然的表示形式：
 #### 泊松似然
-对于累积风险函数和累积分布函数，定义
+对于累积风险函数和累积分布函数，有
 $$1-F(t)=\exp(-\Lambda(t))$$
 相应地，与 $\Lambda$ 相关的对数经验似然表示为：
 $$\begin{align}
 &\quad\,\,\delta_i\log\mathrm{d}F(t_i)+(1-\delta_i)\log\left[1-F(t_i)\right]\\
-&= \delta_i\log\Lambda(t_i)+(1-\delta_i)(-\Lambda(t_i))\\
-&=
+&= \delta_i\log\mathrm{d}[1-\exp(-\Lambda(t_i))]+(1-\delta_i)(-\Lambda(t_i))\\
+&= \delta_i\log\Delta\Lambda(t_i)-\Lambda(t_i)
 \end{align}$$
+其中，$\Delta\Lambda(t_i)=\Lambda(t_i+)-\Lambda(t_i-)$ 。
