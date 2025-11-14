@@ -71,4 +71,14 @@ $$\sum_{i=1}^n g_p(T_i)w_i=\theta_p$$
 而在有约束条件下进行估计时，我们可以通过 Nelson-Aalen 估计器得到参数 $\theta$ 的 NPMLE 估计，即： 
 $$\hat{\theta}_{NPMLE}=\int g(t)\mathrm{d}\hat{\Lambda}_{NA}(t)$$
 ### 1.3 最大化风险经验似然
-前面我们提到，离散风险函数的最后一个跳跃必须为 1，于是在最大经验似然估计下应有 $w_n=\delta_n=\Delta\hat{\Lambda}_{NA}(T_n)$ ，而对于其他跳跃的估计，我们以离散估计下的约束条件为基础，可以通过以下定理来得到其他跳跃的估计。
+前面我们提到，离散风险函数的最后一个跳跃必须为 1，因此，在最大化经验似然估计时，最后一个跳跃应满足 $w_n=\Delta\hat{\Lambda}_{NA}(T_n)=\delta_n$ 。对于其他跳跃的估计，我们可以基于离散估计下的约束条件，通过以下定理来获得其他跳跃的估计值。
+
+>[!info|wbk wtb tm]+ 
+> *定理 1.1*&emsp;如果所有约束都具有为一的风险函数解，那么在约束条件下，最大化对数经验似然 $\log EL(\Lambda)$ 在所有跳跃满足下式时获得，即：
+> $$\begin{align}
+> 	w_i &= \frac{\delta_i}{R_i+n\vec{\lambda}^\top \vec{G}(T_i)\delta_i} \\
+> 	&= \frac{\delta_i}{R_i}\times \frac{1}{1+\vec{\lambda}^\top(\delta_i\vec{G}(T_i)\,/\,(R_i/n))} \\
+> 	&= \Delta\hat{\Lambda}_{NA}(T_i)\frac{1}{1+\vec{\lambda}^\top \vec{Z}_i}\,,\quad i=1,2,\ldots,n
+> \end{align}$$
+> 其中
+> $$\vec{G}(T_i)=\{g_1(T_i),\ldots,g_p(T_i)\}^\top\,,\quad\vec{Z}_i=\frac{\delta_i\vec{G}(T_i)}{R_i/n}=\{\frac{\delta_i g_1(T_i)}{R_i/n},\ldots,\frac{\delta_i g_p(T_i)}{R_i/n}\}$$
