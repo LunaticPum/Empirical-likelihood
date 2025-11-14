@@ -1,4 +1,4 @@
-# 1. 右删失数据的经验似然
+# 1. 右删失数据的经验似然估计
 假设 $X_1,\ldots,X_n$ 为一组独立同分布的随机变量，表示生存分析中的**生存时间**，且这些变量服从连续分布，其累积分布函数为 $F_0(t)$，相应的*累积风险函数*为 $\Lambda_0(t)$ 。进一步，假设 $C_1,\ldots,C_n$ 是另一组独立同分布的随机变量，表示生存分析中的**删失时间**，这些变量同样服从连续分布，其累积分布函数为 $G_0(t)$ ，且删失时间与生存时间相互独立。基于这些假设，可以得到一组带删失的观测量 $(T_i,\delta_i)$ ，其中：
 $$T_i=\min(X_i,C_i)\quad\text{and}\quad\delta_i=\mathbb{1}(X_i\leq C_i)\quad \text{for}\,\,\,i=1,2,\ldots,n$$
 其中，$T_i$ 是观测到的生存时间，$\delta_i$ 是删失指示变量（$\delta_i = 0$ 表示观测数据为删失）。
@@ -42,8 +42,13 @@ $$\Lambda(t_i)=\sum_j\Delta\Lambda(t_j)\mathbb{1}[t_j\leq t_i]$$
 $$\log EL(\Lambda)=\sum_{i=1}^n\left(\delta_i\log\Delta\Lambda(t_i)-\sum_j\Delta\Lambda(t_j)\mathbb{1}[t_j\leq t_i]\right)$$
 
 ### 1.2 经验似然估计
-根据上述过程，我们能得到删失数据的关于累积风险函数的经验似然有如下两个形式：
+根据上述过程，我们可以得到删失数据中关于累积风险函数的经验似然的两种表示形式：
 $$\begin{align}
-	EL(\Lambda)&=\prod_{i=1}^n\left\{\Delta\Lambda(t_i)\right\}^{\delta_i}\exp\left\{\sum_j\Delta\Lambda(t_j)\mathbb{1}[t_j\leq t_i]\right\} \\
-	
+	EL(\Lambda)&=\prod_{i=1}^n\left\{\Delta\Lambda(T_i)\right\}^{\delta_i}\exp\left\{-\sum_j\Delta\Lambda(T_j)\mathbb{1}[T_j\leq T_i]\right\} \\
+	EL(\Lambda)&=\prod_{i=1}^n\left\{\Delta\Lambda(T_i)\right\}^{\delta_i}\exp\left\{-\Lambda(T_i)\right\} 
 \end{align}$$
+其中，第一行表达式是基于假设累积风险函数 $\Lambda(T)$ 为纯离散函数（阶梯函数）的情况下得到的。
+
+由于数据中存在删失，意味着我们*对病人的生存时间进行的是不完全观测*，因此生存时间的观测是离散的，而其相应的累积风险函数也必然具有**跳跃性**。因此，我们只能选择离散形式的风险函数作为经验似然的标准，并以离散的风险函数作为我们的经验似然估计目标。
+
+令 $w_i=\Delta\Lambda(T_i),\quad i=1,2,\ldots,n$ 
