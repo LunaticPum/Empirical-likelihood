@@ -51,4 +51,14 @@ $$\begin{align}
 
 由于数据中存在删失，意味着我们*对病人的生存时间进行的是不完全观测*，因此生存时间的观测是离散的，而其相应的累积风险函数也必然具有**跳跃性**。因此，我们只能选择离散形式的风险函数作为经验似然的标准，并以离散的风险函数作为我们的经验似然估计目标。
 
-令 $w_i=\Delta\Lambda(T_i),\quad i=1,2,\ldots,n$ 
+>[!tip|pz]+ **最大观测值删失对风险函数估计的影响**
+> 当最大观测值被删失时，风险函数的经验似然估计（NPMLE）和Kaplan-Meier估计都会面临类似的问题：*对于删失后的时间段，无法给出唯一的估计值*。这是因为删失数据提供了关于该时间点之后的信息的不完全性，导致无法确定删失时间点之后的生存风险或生存概率。
+
+令 $w_i=\Delta\Lambda(T_i)\,,\, i=1,2,\ldots,n$ , 其中 $w_n = \delta_n$ ，因为累积风险函数的最后一跳必须为 1，保证所有时刻的累积风险的跳跃总和为 1。于是有：
+$$EL(\Lambda)=\prod_{i=1}^n\left\{w_i\right\}^{\delta_i}\exp\left\{-\sum_{j=1}^nw_j\mathbb{1}[T_j\leq T_i]\right\}$$
+接着，再给设置经验似然估计的约束，即 $\Lambda(T)$ 需要满足的条件：
+$$\int_0^\infty g_1(t)d\Lambda(t)=\theta_1$$
+$$\int_0^\infty g_2(t)d\Lambda(t)=\theta_2$$
+$$\cdots\cdots$$
+$$\int_0^\infty g_p(t)d\Lambda(t)=\theta_p$$
+其中
