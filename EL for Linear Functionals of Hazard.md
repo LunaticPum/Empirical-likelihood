@@ -74,11 +74,15 @@ $$\hat{\theta}_{NPMLE}=\int g(t)\mathrm{d}\hat{\Lambda}_{NA}(t)$$
 前面我们提到，离散风险函数的最后一个跳跃必须为 1，因此，在最大化经验似然估计时，最后一个跳跃应满足 $w_n=\Delta\hat{\Lambda}_{NA}(T_n)=\delta_n$ 。对于其他跳跃的估计，我们可以基于离散估计下的约束条件，通过以下定理来获得其他跳跃的估计值。
 
 >[!info|wbk wtb tm]+ 
-> *定理 1.1*&emsp;如果所有约束都具有为一的风险函数解，那么在约束条件下，最大化对数经验似然 $\log EL(\Lambda)$ 在所有跳跃满足下式时获得，即：
+> *定理 1.1*&emsp;如果所有约束都具有唯一的风险函数解，那么在约束条件下，最大化对数经验似然 $\log EL(\Lambda)$ 的解在所有跳跃满足以下式子时获得，即：
 > $$\begin{align}
 > 	w_i &= \frac{\delta_i}{R_i+n\vec{\lambda}^\top \vec{G}(T_i)\delta_i} \\
 > 	&= \frac{\delta_i}{R_i}\times \frac{1}{1+\vec{\lambda}^\top(\delta_i\vec{G}(T_i)\,/\,(R_i/n))} \\
 > 	&= \Delta\hat{\Lambda}_{NA}(T_i)\frac{1}{1+\vec{\lambda}^\top \vec{Z}_i}\,,\quad i=1,2,\ldots,n
 > \end{align}$$
 > 其中
-> $$\vec{G}(T_i)=\{g_1(T_i),\ldots,g_p(T_i)\}^\top\,,\quad\vec{Z}_i=\frac{\delta_i\vec{G}(T_i)}{R_i/n}=\{\frac{\delta_i g_1(T_i)}{R_i/n},\ldots,\frac{\delta_i g_p(T_i)}{R_i/n}\}$$
+> $$\vec{G}(T_i)=\{g_1(T_i),\ldots,g_p(T_i)\}^\top\,,\quad\vec{Z}_i=\frac{\delta_i\vec{G}(T_i)}{R_i/n}=\left\{\frac{\delta_i g_1(T_i)}{R_i/n},\ldots,\frac{\delta_i g_p(T_i)}{R_i/n}\right\}$$
+> 而 $\vec{\lambda}=\{\lambda_1,\ldots,\lambda_p\}$ 为下列等式的解
+> $$\sum_{i=1}^{n-1}\frac{1}{n}\frac{Z_{ki}}{1+\lambda^\top\vec{Z}_i}+g_k(T_n)\delta_n=\theta_k\,,\quad k=1,2,\ldots,p$$
+> 
+> *Ps. 上述过程实际上是通过拉格朗日法求解在约束条件下使目标函数 $\log EL(\Lambda)$ 取最大值的解，$\lambda$ 为拉格朗日乘子。*
