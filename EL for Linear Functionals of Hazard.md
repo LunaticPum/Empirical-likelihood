@@ -158,4 +158,9 @@ $$Lik_{emp}(\beta,\Lambda_0)=\prod_{i=1}^n(\Delta_0(T_i)\exp(\beta z_i))^{\delta
 > 仔细对比 $Lik_{emp}(\beta)$ 和 Cox 部分似然的函数形式，可以发现两者的函数结构非常相似
 
 ### 2.1 经验似然估计
-为了得到关于 $\beta$ 的剖面似然，我们对基准风险 $\Lambda_0$ 最大化对数经验似然 $\log Lik_{emp}$ ，
+为了得到关于 $\beta$ 的剖面似然，我们对基准风险 $\Lambda_0$ 最大化对数经验似然 $\log Lik_{emp}$ ，令 $w_i=\Delta_0(T_i)$ ，得到：
+$$Lik_{emp}(\beta,w_i)=\prod_{i=1}^n(w_i\exp(\beta z_i))^{\delta_i}\exp\left(-\exp(\beta z_i)\sum_j w_j\,\mathbb{1}[T_j\leq T_i]\right)$$
+接着，通过零导数优化，可以得到 $w_i$ 的闭式解为：
+$$w_i=\frac{\delta_i}{\sum_j\exp(\beta z_j\,\mathbb{1}[t_j\geq t_i])}$$
+将其代入回 $Lik_{emp}$ 可以得到：
+$$\log Lik_{emp}=\log Lik_{cox}-\sum_j\delta_j$$
