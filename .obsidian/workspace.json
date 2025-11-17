@@ -120,7 +120,8 @@
               "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -218,7 +219,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7766d64b795d2873",
+  "active": "e67ac48bb59c5d7b",
   "lastOpenFiles": [
     "经验似然.md",
     "EL for Linear Functionals of Hazard.md",
