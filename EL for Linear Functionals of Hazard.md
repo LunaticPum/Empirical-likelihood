@@ -89,6 +89,7 @@ $$\hat{\theta}_{NPMLE}=\int g(t)\mathrm{d}\hat{\Lambda}_{NA}(t)$$
 
 >[!info|wbk wtb tm]+ 
 > *例子 1.1*&emsp;在本例中，我们检验一个关于生存概率的假设。具体来说，目的是检验在 3 年时的累积风险是否等于给定值 $\theta = -\log(0.4)$。为此，我们定义约束 $g(t) = \mathbb{1}[t \leq 1095.75]$，表示生存时间小于或等于 3 年，并假设原假设为 $H_0 : \int g(t) \mathrm{d}\Lambda_0(t) = \theta = -\log(0.4)$。根据生存函数的关系 $S(t) = \exp(-\Lambda_0(t))$，这个检验等价于检验 3 年时的生存概率 $S(3) = \exp(\log(0.4)) = 0.6$ 是否成立，即检验 3 年时的生存概率是否为 60%。
+
 ```R fold=例子1.1
 # install.packages("D:/R/RProject/Package/emplik_1.3-2.zip")
 # install.packages("D:/R/RProject/Package/survival_3.8-3.zip")

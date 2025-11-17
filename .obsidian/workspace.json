@@ -188,12 +188,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "EL for Linear Functionals of Hazard.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "EL for Linear Functionals of Hazard 的大纲"
             }
           }
         ],
