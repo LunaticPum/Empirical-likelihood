@@ -145,11 +145,17 @@ $$\lambda_i(t)=\lambda_0(t)\exp(\beta_0z_i)$$
 $$T_i=\min(X_i,C_i)\,,\,\,\delta_i=\mathbb{1}(X_i\leq C_i)\quad\text{and}\quad z_i$$
 其中，$C_i$ 为删失时间。
 
-套用泊松形式的经验似然，可以得到：
+将泊松过程形式的经验似然套用于上述观测，可以写成：
 $$\{\lambda_i(T_i)\mathrm{d}t_i\}^{\delta_i}\exp\{-\Lambda_i(T_i)\}$$
-其中，$\Lambda_i(T_i)$ 为累积风险函数，根据比例风险模型，有：
+其中，$\Lambda_i(T_i)$ 为累积风险函数。根据比例风险假设，有：
 $$\lambda_i(T_i) = \lambda_0(T_i)\exp(\beta z_i)\,,\quad\Lambda_i(T_i) = \Lambda_0(T_i)\exp(\beta z_i)$$
-令累积风险函数为纯离散函数，于是：
+令风险函数为纯离散形式，于是：
 $$\lambda_0(T_i)=\Delta\Lambda_0(T_i)\,,\quad\Lambda_0(T_i)=\sum_{j}\Delta\Lambda_0(T_j)\,\mathbb{1}[T_j\leq T_i]$$
-整理后，得到 Cox 模型下的带删失的观测时间经验似然分布可以表示为：
+代入并整理后，可得 Cox 模型下带删失观测的经验似然为
 $$Lik_{emp}(\beta,\Lambda_0)=\prod_{i=1}^n(\Delta_0(T_i)\exp(\beta z_i))^{\delta_i}\exp\left(-\exp(\beta z_i)\sum_j\Delta\Lambda_0(T_j)\,\mathbb{1}[T_j\leq T_i]\right)$$
+由于我们关心的是 $\beta$ 的估计，因此在最大化经验似然时，可以将 $\beta$ 固定，通过对基准风险函数 $\Lambda_0$ 最大化经验似然，从而得到关于 $\beta$ 的经验似然函数。
+>[!tip|pz]+ Cox 经验似然和 Cox 部分似然的相似性
+> 仔细对比 $Lik_{emp}(\beta)$ 和 Cox 部分似然的函数形式，可以发现两者的函数结构非常相似
+
+### 2.1 经验似然估计
+为了得到关于 $\beta$ 的剖面似然，我们对基准风险 $\Lambda_0$ 最大化对数经验似然 $\log Lik_{emp}$ ，
