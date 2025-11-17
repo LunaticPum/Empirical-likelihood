@@ -144,3 +144,12 @@ $$\lambda_i(t)=\lambda_0(t)\exp(\beta_0z_i)$$
 在右删失场景下，我们定义如下观测量：
 $$T_i=\min(X_i,C_i)\,,\,\,\delta_i=\mathbb{1}(X_i\leq C_i)\quad\text{and}\quad z_i$$
 其中，$C_i$ 为删失时间。
+
+套用泊松形式的经验似然，可以得到：
+$$\{\lambda_i(T_i)\mathrm{d}t_i\}^{\delta_i}\exp\{-\Lambda_i(T_i)\}$$
+其中，$\Lambda_i(T_i)$ 为累积风险函数，根据比例风险模型，有：
+$$\lambda_i(T_i) = \lambda_0(T_i)\exp(\beta z_i)\,,\quad\Lambda_i(T_i) = \Lambda_0(T_i)\exp(\beta z_i)$$
+令累积风险函数为纯离散函数，于是：
+$$\lambda_0(T_i)=\Delta\Lambda_0(T_i)\,,\quad\Lambda_0(T_i)=\sum_{j}\Delta\Lambda_0(T_j)\,\mathbb{1}[T_j\leq T_i]$$
+整理后，得到 Cox 模型下的带删失的观测时间经验似然分布可以表示为：
+$$Lik_{emp}(\beta,\Lambda_0)=\prod_{i=1}^n(\Delta_0(T_i)\exp(\beta z_i))^{\delta_i}\exp\left(-\exp(\beta z_i)\sum_j\Delta\Lambda_0(T_j)\,\mathbb{1}[T_j\leq T_i]\right)$$
