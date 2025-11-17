@@ -1,0 +1,31 @@
+/* [Image captions] custom apparence */
+.image-captions-figure {
+  --image-caption-padding: 4px;
+  --bg-color: var(--accent-dark);
+  --border-color: var(--accent-normal);
+  --text-color: var(--accent-neon);
+
+  padding: var(--image-caption-padding);
+  display: block;
+  background-color: var(--bg-color) !important;
+  border-radius: var(--image-radius) !important;
+  border: solid 1px var(--border-color);
+
+  & img {
+    /* padding: var(--image-caption-padding) var(--image-caption-padding) 0 var(--image-caption-padding); */
+    --image-captions-radius: calc(var(--image-radius) - 2px);
+    display: block;
+    border-radius: var(--image-captions-radius) !important;
+  }
+
+  & .image-captions-caption {
+    display: block;
+    margin: 0;
+    background-color: var(--bg-color) !important;
+    line-height: 1.5em;
+    border-radius: 0 0 var(--image-radius) var(--image-radius) !important;
+    font-family: serif;
+    color: var(--text-color);
+    padding-block: 5px 0;
+  }
+}
