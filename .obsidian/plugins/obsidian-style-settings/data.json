@@ -1,6 +1,8 @@
 {
-  "blue-topaz-theme@@color-scheme-options": "color-scheme-options-chocolate-topaz",
+  "blue-topaz-theme@@color-scheme-options": "color-scheme-options-default",
   "catppuccin-theme-settings@@catppuccin-theme-dark": "ctp-macchiato",
   "catppuccin-theme-settings@@catppuccin-theme-accents": "ctp-full-palette",
-  "catppuccin-icon-styles@@ctp-icon-hide": true
+  "catppuccin-icon-styles@@ctp-icon-hide": true,
+  "blue-topaz-theme@@text-normal@@dark": "#CAD3F5",
+  "blue-topaz-theme@@interactive-accent@@dark": "#8AADF4"
 }

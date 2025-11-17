@@ -1,11 +1,10 @@
 {
-  "cssTheme": "Catppuccin",
+  "cssTheme": "Blue Topaz",
   "theme": "obsidian",
   "baseFontSizeAction": true,
   "baseFontSize": 16,
   "enabledCssSnippets": [
     "align-image1",
-    "for_image_captions_plug",
     "Advanced_callout"
   ],
   "interfaceFontFamily": "霞鹜文楷 GB 屏幕阅读版",
