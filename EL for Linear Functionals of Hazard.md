@@ -34,7 +34,7 @@ $$\begin{align}
 &= \delta_i[-\Lambda(t_i)+\Lambda(t_i)+\log\mathrm{d}\Lambda(t_i)]-\Lambda(t_i)\\
 &= \delta_i\log\Delta\Lambda(t_i)-\Lambda(t_i)
 \end{align}$$
-其中，$\Delta\Lambda(t_i)=\Lambda(t_i+)-\Lambda(t_i-)$ 表示累积风险函数 $\Lambda(t_i)$ 在时间点 $t_i$ 的”**跳跃**“。
+其中，$\Delta\Lambda(t_i)=\Lambda(t_i+)-\Lambda(t_i-)$ 表示累积风险函数 $\Lambda(t_i)$ 在时间点 $t_i$ 的“**跳跃**”。
 
 然而，在实际使用中，通过 Kaplan-Meier 估计等方法得到的生存相关的累积分布函数 $F(t)$ 的估计是离散的。因此，累积风险函数 $\Lambda(t)$ 也应当是离散的函数形式。基于此，我们不能简单利用连续形式的 $\Lambda(t)$ 来描述生存函数的变化，而必须考虑到 $\Lambda(t)$ 的**跳跃特性**，即 $\Lambda(t)$ 是一个阶梯函数。*在每个事件发生时，累积风险函数会发生跳跃*，且 $\Lambda(t)$ 在某一时刻 $t_i$ 的值等于在 $t_i$ 之前所有事件跳跃的总和，具体表示为：
 $$\Lambda(t_i)=\sum_j\Delta\Lambda(t_j)\mathbb{1}[t_j\leq t_i]$$
@@ -134,3 +134,4 @@ findUL(
 根据经验似然估计的结果，可以计算得到 -2 对数经验似然比的取值为`0.8027874` ，相应的卡方检验的 p 值为 `0.3702613` ，这表明 3 年的生存概率为 60% 是一个合理的假设。还可以使用 `emplik` 包下的 `findUL` 函数计算生存数据的 $\theta$ 的 95% 置信区间，该区间为 $[0.6568022, 1.029419]$ ，即生存概率的 95% 置信区间为 $[0.357, 0.518]$。
 
 # 2. Cox 模型中的经验似然分析
+同样，令 $X_1, \ldots, X_n$ 记作病人生存时间的一组独立随机变量， $z_1, \ldots, z_n$ 为这组病人对于的协变量，可能为病人的性别、年龄以及治疗方式等。
